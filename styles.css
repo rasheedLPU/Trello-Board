@@ -1,0 +1,258 @@
+/* Styles for the board container */
+
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Set a light gray background color */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.board-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 80%;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+    background-color: #f9f9f9;
+}
+
+.board-container:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.status-column {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.status-column h2 {
+    margin-top: 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+    color: #333; /* Darken the text color */
+}
+
+.status-column .tasks {
+    min-height: 200px;
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    background-color: #fff;
+    max-height: 200px; /* Set a maximum height for the container */
+    overflow-y: auto; /* Enable vertical scrolling when content exceeds container height */
+}
+
+.status-column .tasks::-webkit-scrollbar {
+    width: 8px; /* Set the width of the scrollbar */
+}
+
+.status-column .tasks::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Set the background color of the scrollbar track */
+}
+
+.status-column .tasks::-webkit-scrollbar-thumb {
+    background: #888; /* Set the color of the scrollbar thumb */
+    border-radius: 4px; /* Round the corners of the scrollbar thumb */
+}
+
+.status-column .tasks::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Change the color of the scrollbar thumb on hover */
+}
+
+.new-task-btn {
+    margin-top: 10px;
+    padding: 8px 12px; /* Increase padding for better button appearance */
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.new-task-btn:hover {
+    background-color: #45a049;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
+}
+
+.modal-content input[type="text"],
+.modal-content select,
+.modal-content textarea {
+    width: calc(100% - 20px); /* Adjust input width to fit the modal */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+    background-color: #45a049;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
+}
+
+/* Styles for the task */
+.task {
+    display: flex;
+    align-items: center;
+    padding: 15px; /* Increased padding for better spacing */
+    margin-bottom: 15px; /* Increased margin for better separation between tasks */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Slightly increased border radius for a softer look */
+    background-color: #f5f5f5; /* Light gray background color */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Added transition for background color and transform */
+}
+
+.task:hover {
+    background-color: #e0e0e0; /* Lighter gray on hover */
+    transform: translateY(-3px); /* Lift the task item slightly on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow on hover */
+}
+
+.task span {
+    flex-grow: 1;
+    margin-right: 20px; /* Added more margin to the right of the task title */
+    color: #333; /* Darker text color */
+}
+
+.delete-task-btn {
+    margin-left: 20px; /* Increased margin to the left of the delete button */
+    padding: 8px 15px; /* Increased padding for the delete button */
+    border: none;
+    border-radius: 5px;
+    background-color: #ff6961; /* Red delete button */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Added transition for background color */
+}
+
+.delete-task-btn:hover {
+    background-color: #ff5a51; /* Darker red on hover */
+    transform: translateY(-3px); /* Lift the button slightly on hover */
+}
+
+
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6); /* Darkened the background */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px; /* Increased padding for better spacing */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Increased shadow */
+    width: 70%; /* Increased width */
+    max-width: 600px; /* Added max-width for responsiveness */
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    transition: color 0.3s; /* Added transition for color */
+}
+
+.close:hover,
+.close:focus {
+    color: #555; /* Darker color on hover */
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px; /* Added bottom margin for spacing */
+    font-size: 24px; /* Increased font size */
+    color: #333; /* Darker text color */
+}
+
+.modal-content input[type="text"],
+.modal-content select,
+.modal-content textarea {
+    width: 100%;
+    padding: 15px; /* Increased padding for better input styling */
+    margin-bottom: 20px; /* Increased bottom margin for spacing */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s; /* Added transition for border color */
+}
+
+.modal-content input[type="text"]:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+    border-color: #66afe9; /* Highlighted border color on focus */
+}
+
+.modal-content button {
+    padding: 15px 30px; /* Increased padding for better button styling */
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+    background-color: #45a049;
+}
+
+
+
+
+
+
+
+
+
+
